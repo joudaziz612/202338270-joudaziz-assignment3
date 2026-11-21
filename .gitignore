@@ -1,0 +1,8 @@
+# AI evidence must NOT be committed (assignment rule)
+ai-evidence/
+*.zip
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
