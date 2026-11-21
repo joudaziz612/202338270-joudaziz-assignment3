@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Joud Aziz's personal portfolio: projects, GitHub repositories, skills, and contact.">
+  <title>Joud Aziz | Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- defer: the script downloads in parallel and runs after the HTML is parsed -->
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h1>Joud Aziz</h1>
+    <p>Junior Computer Science Student</p>
+
+    <!-- Visitor greeting (state: the visitor's name is saved in localStorage) -->
+    <div id="greetingBox" class="greeting-box">
+      <form id="nameForm" class="name-form">
+        <label for="visitorName">Welcome! What's your name?</label>
+        <input type="text" id="visitorName" maxlength="20" autocomplete="given-name">
+        <button type="submit" class="small-btn">Save</button>
+      </form>
+
+      <div id="greetingMessage" class="greeting-message" hidden>
+        <span id="greetingText"></span>
+        <button type="button" id="changeNameBtn" class="link-btn">Change name</button>
+      </div>
+    </div>
+
+    <nav aria-label="Portfolio navigation">
+      <button type="button" class="section-btn active" data-section="about" aria-pressed="true">About Me</button>
+      <button type="button" class="section-btn" data-section="projects" aria-pressed="false">Projects</button>
+      <button type="button" class="section-btn" data-section="github" aria-pressed="false">GitHub</button>
+      <button type="button" class="section-btn" data-section="skills" aria-pressed="false">My Skills</button>
+      <button type="button" class="section-btn" data-section="contact" aria-pressed="false">Contact</button>
+    </nav>
+
+    <button id="themeButton" type="button">Dark Mode</button>
+  </header>
+
+  <main>
+
+    <!-- About Me Section -->
+    <section id="about" class="portfolio-section">
+      <h2>About Me</h2>
+
+      <p>
+        Hi! I'm Joud, a junior Computer Science student with a passion for
+        technology, problem-solving, and software development. I'm currently
+        building my own personal website, where I can share my projects,
+        skills, and experiences as I continue to grow.
+      </p>
+
+      <p>
+        I'm especially interested in cybersecurity, a field I hope to pursue
+        in my future career. Beyond technology, I also have a love for fashion
+        and creativity. I enjoy exploring new ideas, learning new things, and
+        finding ways to bring my interests together!
+      </p>
+    </section>
+
+    <!-- Projects Section: filter + level + sort -->
+    <section id="projects" class="portfolio-section" hidden>
+      <h2>My Projects</h2>
+      <p>Use the options below to filter and sort my projects.</p>
+
+      <div class="project-controls">
+        <div class="control">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter">
+            <option value="all">All projects</option>
+            <option value="web">Web</option>
+            <option value="mobile">Mobile / UI Design</option>
+            <option value="hardware">Hardware / IoT</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="levelFilter">Level</label>
+          <select id="levelFilter">
+            <option value="all">All levels</option>
+            <option value="beginner">Beginner</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="sortOrder">Sort by</label>
+          <select id="sortOrder">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="name">Name (A–Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Message changes depending on the level the visitor picks -->
+      <p id="levelMessage" class="level-message"></p>
+      <p id="projectCount" class="project-count" role="status" aria-live="polite"></p>
+
+      <div id="projectList">
+
+        <!-- Solar Project -->
+        <article class="project-card" data-category="hardware" data-level="advanced"
+          data-date="2023" data-name="Smart Solar Cleaning System">
+          <h3>Smart Solar Cleaning System (SCC)</h3>
+          <p class="project-meta">Hardware / IoT · Advanced · 2023</p>
+
+          <img src="assets/images/solar-panels.webp" width="390" height="293"
+            alt="Solar panels representing the cleaning system" loading="lazy">
+
+          <p>
+            The Smart Solar Cleaning System is a project designed to help improve
+            solar panel efficiency by reducing dust accumulation. Dust can affect
+            the performance of solar panels, making regular cleaning important.
+          </p>
+
+          <p>
+            Our system uses a dust sensor to detect when cleaning is needed and
+            automatically activates a cleaning mechanism. The goal is to make
+            maintenance easier and reduce the need for manual cleaning.
+          </p>
+
+          <button type="button" class="details-btn" aria-controls="solarDetails" aria-expanded="false">
+            View Details
+          </button>
+
+          <div id="solarDetails" class="project-details" hidden>
+            <h4>Project Goal</h4>
+            <p>
+              To explore an automated solution for keeping solar panels clean and
+              supporting efficient solar energy generation through smart technology.
+            </p>
+          </div>
+        </article>
+
+        <!-- Plant Care Project -->
+        <article class="project-card" data-category="mobile" data-level="beginner"
+          data-date="2026-10" data-name="Plant Care App">
+          <h3>Plant Care App — Prototype</h3>
+          <p class="project-meta">Mobile / UI Design · Beginner · October 2026</p>
+
+          <img src="assets/images/plant-care.webp" width="590" height="403"
+            alt="Plant care project image" loading="lazy">
+
+          <p>
+            This project is a mobile application prototype designed to make
+            gardening easier, especially for people living in Saudi Arabia. It
+            helps users discover plants suitable for their region and learn how
+            to take care of them.
+          </p>
+
+          <p>
+            The app includes personalized gardening preferences, a plant catalog,
+            planting recommendations, and information about watering, sunlight,
+            soil, temperature, and harvesting.
+          </p>
+
+          <button type="button" class="details-btn" aria-controls="plantDetails" aria-expanded="false">
+            View Details
+          </button>
+
+          <div id="plantDetails" class="project-details" hidden>
+            <h4>Our Prototype</h4>
+            <p>
+              These wireframes show how users could interact with the app, from
+              setting their preferences to exploring plants and gardening information.
+            </p>
+
+            <div class="prototype-gallery">
+              <figure>
+                <img src="assets/images/prototype-preferences.webp" width="700" height="640"
+                  alt="Gardening preferences and planting recommendations" loading="lazy">
+                <figcaption>Gardening Preferences</figcaption>
+              </figure>
+
+              <figure>
+                <img src="assets/images/prototype-catalog.webp" width="700" height="649"
+                  alt="Plant catalog and plant care information" loading="lazy">
+                <figcaption>Plant Catalog</figcaption>
+              </figure>
+
+              <figure>
+                <img src="assets/images/prototype-explore.webp" width="700" height="634"
+                  alt="Explore Saudi agriculture screen and admin screen" loading="lazy">
+                <figcaption>Explore Saudi Agriculture</figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+
+        <!-- Portfolio Website Project -->
+        <article class="project-card" data-category="web" data-level="beginner"
+          data-date="2026-11" data-name="Personal Portfolio Website">
+          <h3>Personal Portfolio Website</h3>
+          <p class="project-meta">Web · Beginner · November 2026</p>
+
+          <p>
+            This website! I built it step by step across three assignments using
+            HTML, CSS, and JavaScript. It now includes a GitHub API integration,
+            project filtering and sorting, a saved dark mode, a visitor greeting,
+            and a validated contact form.
+          </p>
+
+          <a class="project-link" href="https://github.com/joudaziz612/202338270-joudaziz-assignment3"
+            target="_blank" rel="noopener">View source on GitHub</a>
+        </article>
+
+      </div>
+
+      <p id="noProjects" class="empty-message" hidden>
+        No projects match these options yet. Try another category or level.
+      </p>
+    </section>
+
+    <!-- GitHub Section: data loaded from the GitHub REST API -->
+    <section id="github" class="portfolio-section" hidden>
+      <h2>My Latest GitHub Repositories</h2>
+      <p>This list is loaded live from the GitHub API, so it is always up to date.</p>
+
+      <p id="repoStatus" class="repo-status" role="status" aria-live="polite">Loading repositories…</p>
+      <button type="button" id="retryBtn" class="details-btn" hidden>Try Again</button>
+
+      <div id="repoList" class="repo-list"></div>
+
+      <a class="project-link" href="https://github.com/joudaziz612" target="_blank" rel="noopener">
+        See my full GitHub profile
+      </a>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="portfolio-section" hidden>
+      <h2>My Skills &amp; Interests</h2>
+
+      <h3>Technical Skills</h3>
+      <div class="skills-list">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Git &amp; GitHub</span>
+        <span class="skill-tag">REST APIs</span>
+      </div>
+
+      <h3>Professional Skills</h3>
+      <div class="skills-list">
+        <span class="skill-tag">Problem-Solving</span>
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Communication</span>
+      </div>
+
+      <h3>My Interests</h3>
+      <div class="skills-list">
+        <span class="skill-tag">Cybersecurity</span>
+        <span class="skill-tag">Web Development</span>
+        <span class="skill-tag">Fashion &amp; Design</span>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="portfolio-section" hidden>
+      <h2>Contact Me</h2>
+
+      <p>
+        I'd love to connect! You can reach me at
+        <a href="mailto:joudazizalqarni@gmail.com">joudazizalqarni@gmail.com</a>
+      </p>
+
+      <p>Or fill out the form below to prepare an email.</p>
+
+      <form id="contactForm" novalidate>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" autocomplete="name" aria-describedby="nameError">
+        <small id="nameError" class="field-error"></small>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="emailError">
+        <small id="emailError" class="field-error"></small>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" maxlength="500" aria-describedby="messageError charCount"></textarea>
+        <small id="charCount" class="char-count">0 / 500 characters (minimum 10)</small>
+        <small id="messageError" class="field-error"></small>
+
+        <button type="submit" class="contact-btn">Prepare Email</button>
+
+        <p id="formFeedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>You have been on this site for <strong id="visitTimer">0s</strong>.</p>
+    <p>&copy; <span id="year"></span> Joud Aziz</p>
+  </footer>
+
+</body>
+</html>
