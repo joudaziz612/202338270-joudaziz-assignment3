@@ -4,7 +4,8 @@
    Settings
    ========================================= */
 const GITHUB_USER = "joudaziz612";
-const REPO_PREFIX = "202338270-joudaziz-assignment"; const REPO_LIMIT = 6;                  // how many repositories to show
+const REPO_PREFIX = "202338270-joudaziz-assignment"; // only show my portfolio assignments
+const REPO_LIMIT = 6;                  // how many repositories to show
 const CACHE_TIME = 10 * 60 * 1000;     // keep GitHub data for 10 minutes
 
 /* =========================================
@@ -313,7 +314,7 @@ async function loadRepositories() {
 
     const data = await response.json();
 
-    // Keep only my own repositories (not forks), newest first, limited to REPO_LIMIT
+    // Keep only my portfolio assignment repositories (not forks), newest first
     const repos = data
       .filter(function (repo) {
         return !repo.fork && repo.name.startsWith(REPO_PREFIX);
